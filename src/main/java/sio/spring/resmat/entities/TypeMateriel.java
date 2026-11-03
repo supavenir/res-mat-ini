@@ -1,10 +1,13 @@
 package sio.spring.resmat.entities;
 
+import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,5 +28,11 @@ public class TypeMateriel {
 
 	@Column(nullable = false)
 	private boolean auCatalogue;
+
+	@ManyToOne()
+	private Categorie categorie;
+
+	@OneToMany(mappedBy = "type")
+	private List<Materiel> materiels;
 
 }
