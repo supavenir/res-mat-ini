@@ -35,4 +35,7 @@ public class TypeMateriel {
 	@OneToMany(mappedBy = "type")
 	private List<Materiel> materiels;
 
+	@OneToMany(mappedBy = "typeMateriel")
+	private List<Reservation> reservations;
+
 }
