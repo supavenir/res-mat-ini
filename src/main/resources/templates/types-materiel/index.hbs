@@ -1,0 +1,67 @@
+{{> /include/header}}
+<section class="container">
+{{> /include/bloc-header}}
+
+    {{#typesMateriel}}
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Catégorie</th>
+                        <th scope="col">Durée maximale</th>
+                        <th scope="col">Catalogue</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#typesMateriel}}
+                        <tr>
+                            <td>
+                                <strong>{{nom}}</strong>
+                                {{#description}}
+                                    <br>
+                                    <span class="field-help">{{description}}</span>
+                                {{/description}}
+                            </td>
+
+                            <td>{{categorie.nom}}</td>
+
+                            <td>{{dureeMaxEmprunt}} jours</td>
+
+                            <td>
+                                {{#auCatalogue}}
+                                    <span class="badge badge-available">Au catalogue</span>
+                                {{/auCatalogue}}
+                                {{^auCatalogue}}
+                                    <span class="badge badge-unavailable">Retiré</span>
+                                {{/auCatalogue}}
+                            </td>
+
+                            <td>
+                                <a
+                                    class="button button-secondary button-small"
+                                    href="/types-materiel/{{id}}/modifier"
+                                >
+                                    Modifier
+                                </a>
+                            </td>
+                        </tr>
+                    {{/typesMateriel}}
+                </tbody>
+            </table>
+        </div>
+    {{/typesMateriel}}
+
+    {{^typesMateriel}}
+        <div class="empty-state">
+            <h2>Aucun type de matériel</h2>
+            <p>Tu peux ajouter un type de matériel pour commencer à compléter le catalogue.</p>
+            <a class="button" href="/types-materiel/nouveau">
+                Ajouter un type de matériel
+            </a>
+        </div>
+    {{/typesMateriel}}
+</section>
+{{> /include/footer}}

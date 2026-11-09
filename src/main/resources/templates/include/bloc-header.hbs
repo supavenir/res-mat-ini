@@ -1,0 +1,45 @@
+<header class="site-header">
+    <div class="header-inner">
+        <a class="brand" href="/">
+            <span class="brand-mark">M</span>
+            <span>{{nomApplication}}</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navigation principale">
+            {{#liensNavigation}}
+                <a href="{{url}}" class="{{#actif}}active{{/actif}}">
+                    {{libelle}}
+                </a>
+            {{/liensNavigation}}
+        </nav>
+
+        <div class="header-user">
+            {{#utilisateurConnecte}}
+                <span class="header-user-name">{{prenom}} {{nom}}</span>
+                <a class="button button-secondary button-small" href="/logout">
+                    Déconnexion
+                </a>
+            {{/utilisateurConnecte}}
+
+            {{^utilisateurConnecte}}
+                <a class="button button-small" href="/login">Connexion</a>
+            {{/utilisateurConnecte}}
+        </div>
+    </div>
+</header>
+
+{{#titrePage}}
+<section class="page-banner" aria-labelledby="page-title">
+    <div class="page-banner-inner">
+        <div>
+            {{#surTitre}}<p class="eyebrow">{{surTitre}}</p>{{/surTitre}}
+            <h1 id="page-title">{{titre}}</h1>
+            {{#description}}<p>{{description}}</p>{{/description}}
+        </div>
+
+        {{#actionHeader}}
+            <a class="button" href="{{url}}">{{libelle}}</a>
+        {{/actionHeader}}
+    </div>
+</section>
+{{/titrePage}}
