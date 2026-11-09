@@ -7,6 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,5 +32,8 @@ public class Emprunt {
 
 	@OneToOne(optional = false, fetch = FetchType.LAZY)
 	private Reservation reservation;
+
+	@ManyToOne(optional = false)
+	private Materiel materiel;
 
 }
