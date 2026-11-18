@@ -1,7 +1,7 @@
 services:
   mariadb:
     image: mariadb:11
-    container_name: mon-projet-mariadb
+    container_name: db
     restart: unless-stopped
     environment:
       MARIADB_ROOT_PASSWORD: Password
